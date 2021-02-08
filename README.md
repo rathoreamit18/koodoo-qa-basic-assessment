@@ -18,9 +18,9 @@ Their APIs provide breakdowns and information on end-user's payment histories, a
 
 ## The Solution
 In order to generate this analysis, the software needs to predominantly do three things:
-* *Sanitize the incoming data to a usable format*; The company that provide the data for us (TRSNMUFS) get it from a variety of different sources, and there are often differences in how different sources report this data to TRSNMUFS, in addition to this, TRSNMUFS themselves have often previously sent us data in formats/shapes/types we did not expect, so we need to be really vigilant about how we process this.
-* *Perform calculations on the sanitized data*; Once the data is in a more usable format and we have removed any unusable payments, we need to perform calculations on it. The required output for this analysis includes: Minimum, Maximum, Mean, Median, and Standard Deviation.
-* *Return the result of the calculations in a format to be ingested by another API/Function/System*; The output needs to take the below shape (with each field rounded to 2 decimal places):
+* **Sanitize the incoming data to a usable format**; The company that provide the data for us (TRSNMUFS) get it from a variety of different sources, and there are often differences in how different sources report this data to TRSNMUFS, in addition to this, TRSNMUFS themselves have often previously sent us data in formats/shapes/types we did not expect, so we need to be really vigilant about how we process this.
+* **Perform calculations on the sanitized data**; Once the data is in a more usable format and we have removed any unusable payments, we need to perform calculations on it. The required output for this analysis includes: Minimum, Maximum, Mean, Median, and Standard Deviation.
+* **Return the result of the calculations in a format to be ingested by another API/Function/System**; The output needs to take the below shape (with each field rounded to 2 decimal places):
 ```
     {
         min: 1,
@@ -38,14 +38,18 @@ What is your role in this? It needs to be tested! We need you to come up with so
 The current tooling we use to test software is Ava, and your job is to write no more than 20 tests in the .spec.js file provided to give us a good level of confidence on the software at hand!
 
 You have three files provided for you:
-* *analyze.js*; The software produced to parse, analyse, and return the data sent to us by TRSNMUFS.
-* *analyze.spec.js*; The test file you will be using to write your tests in. It even has two example tests which should give you a basic idea of the structure of the tests that Ava uses, and you should just be able to copy/paste the tests changing the input to scenarios you want. You can even leave these two tests as part of your 20 tests if you think they give you a good level of confidence with your tests.
-* *example.json*; An example of the sort of thing we get from TRSNMUFS, giving you a basic overview of what their data looks like. This might help you come up with some scenarios to cover. It will always take the form of an array of payment objects.
+* **analyze.js**; The software produced to parse, analyse, and return the data sent to us by TRSNMUFS.
+* **analyze.spec.js**; The test file you will be using to write your tests in. It even has two example tests which should give you a basic idea of the structure of the tests that Ava uses, and you should just be able to copy/paste the tests changing the input to scenarios you want. You can even leave these two tests as part of your 20 tests if you think they give you a good level of confidence with your tests.
+* **example.json**; An example of the sort of thing we get from TRSNMUFS, giving you a basic overview of what their data looks like. This might help you come up with some scenarios to cover. It will always take the form of an array of payment objects.
 
 Preferrably you would submit this in the form of a github repository.
 
-*Some helpful things:*
+To get started, you'll need to have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)., [node](https://nodejs.org/en/download/), and [npm](https://www.npmjs.com/get-npm) installed. Pull the repository with `git clone [REPO URL]`, run `npm install` in the folder that this creates, and you should be able to run your tests with `npx ava`.
+
+If you have any issues getting ava to run it might help [installing it separately](https://github.com/avajs/ava)
+
+**Some helpful things:**
 * You don't need to know Javascipt, AVA, or Ramda to do this exercise. It will definitely help if you are familiar with JSON, as ultimately that's what form your tests will likely take; JSON input to JSON output. In all reality, your tests don't need to pass, they don't need to find bugs, and they don't even need to run (Although it would be a plus!). We just want to see how you approach the problem and what you think is important to test here.
-* You don't need to be a statistician either, and we won't penalise you for not calculating these things, we're mostly looking to decide what to test in your *inputs*! If you need something to save time, there are a bunch of calculators for these things out there, like [this](https://www.mathsisfun.com/data/standard-deviation-calculator.html).
+* You don't need to be a statistician either, and we won't penalise you for not calculating these things, we're mostly looking to decide what to test in your **inputs**! If you need something to save time, there are a bunch of calculators for these things out there, like [this](https://www.mathsisfun.com/data/standard-deviation-calculator.html).
 * You don't even need to read through the code, but if you try to understand it you might already spot some things that would break it. Don't get bogged down trying to figure out everything it does, as all you need to test it is your brain and an understanding of what it's supposed to do.
 * Think carefully about what you want to test; There is a good mix of in-house code, external libraries, and node JS internal libraries here, and a lot of different ways in which the data can look. Think about what has the least level of confidence and edge cases that need to be covered.
