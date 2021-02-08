@@ -30,7 +30,7 @@ In order to generate this analysis, the software needs to predominantly do three
         standardDeviation: 1
     }
 ```
-The analysis software uses a mix between Node JS' built in Math library, and an external functional programming suit, Ramda.
+The analysis software uses a mix between Node JS' built in Math library, and an external functional programming suite, Ramda.
 
 ## Your Job
 What is your role in this? It needs to be tested! We need you to come up with some tests for this software that give us a good level of confidence that it is working as expected, and will not break or produce unexpected results. The timeline for getting this hypothetical software out is very tight, so we only have time to set up and run so many tests.
