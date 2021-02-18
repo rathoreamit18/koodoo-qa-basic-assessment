@@ -82,3 +82,5 @@ If you have any issues getting ava to run it might help [installing it separatel
 * You don't even need to read through the code, but if you try to understand it you might already spot some things that would break it. Don't get bogged down trying to figure out everything it does, as all you need to test it is your brain and an understanding of what it's supposed to do.
 * Think carefully about what you want to test; There is a good mix of in-house code, external libraries, and node JS internal libraries here, and a lot of different ways in which the data can look. Think about what has the least level of confidence and edge cases that need to be covered. Think about boundary values and unhappy paths and use your knowledge of things like TDD and unit testing.
 * There are definitely bugs in the code, so your tests may not all pass if you do actually want to run them. If you do find any bugs please raise them! You can do this by email, in a note file, or however you want! Again, don't be discouraged if you don't see or find anything. The important thing here is seeing what you think is important to test.
+
+**We look forward to seeing what you come up with!**
